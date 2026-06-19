@@ -1,0 +1,17 @@
+create table clientes (
+  id serial primary key,
+  nombre text,
+  nif text,
+  email text
+);
+
+insert into clientes (nombre, nif, email)
+values ('Cliente Demo FINESIA', '00000000A', 'demo@finesia.local');
+
+create table resultados_ia (
+  id serial primary key,
+  cliente_id int references clientes(id),
+  tipo text,
+  payload_json jsonb,
+  creado_en timestamp default now()
+);
