@@ -1,15 +1,5 @@
-import { NextResponse } from "next/server";
-import { leerMovimientos } from "@/lib/sheets";
+import { NextResponse } from 'next/server';
 
-export async function GET() {
-  console.log(">>> EJECUTANDO GET /api/test");
-
-  try {
-    const data = await leerMovimientos();
-    console.log(">>> RESPUESTA DEL WEBAPP:", data);
-    return NextResponse.json(data);
-  } catch (err: any) {
-    console.error(">>> ERROR EN leerMovimientos:", err);
-    return NextResponse.json({ status: "ERROR", message: err.message }, { status: 500 });
-  }
+export async function POST(req: Request) {
+  return NextResponse.json({ status: "OK", message: "Ruta encontrada" });
 }
